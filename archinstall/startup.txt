@@ -1,0 +1,2 @@
+bcf boot 1 fs0:\EFI\GRUB\grubx64efi "My GRUB bootloader"
+exit

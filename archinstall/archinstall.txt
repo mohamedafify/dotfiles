@@ -1,0 +1,53 @@
+[internet]
+        wifi-menu
+        // if failed use this 
+        iwd
+        "wifi-device-name" list
+        station  "wifi-device-name" scan
+        station "wifi-device-name" get-networks
+        station "wifi-device-name" connect "wifi-name"
+
+[partiton]
+        mkfs.fat -F32 /dev/sda1 // boot partiton
+        mkfs.ext4 /dev/sda2     // root partiton
+        mkfs.ext4 /dev/sda3     // home partiton
+
+[mounting]
+        mount /dev/sda2 /mnt // mounting root parition to /mnt
+        mkdir /mnt/home         // creating home in root
+        mount /dev/sda2 /mnt/home       // mounting home partition to /mnt/home
+        mkdir /mnt/boot/efi // creating boot dir in root
+        mount /dev/sda1 /mnt/boot/efi   // mounting boot partition to /mnt/boot/efi
+
+[installation]
+        pacstrap -i /mnt $([main]Packages.txt)
+        fstab -U /mnt >> /mnt/etc/fstab // get hardware information and set it up to be mounted on boot
+        arch-chroot /mnt // hop into the installed archlinux
+        vim /etc/locale.gen (edit out the languages needed)
+        locale-gen // generates the edited out languages
+        ln -sf /usr/share/zoneinfo/$(your location) /etc/localtime //sets the localtime of the machine
+        hwclock --systohc --utc // set hardware clock
+        echo $(name of the computer) > /etc/hostname
+        vim /etc/hosts (add $(host.txt))
+        systemctl enable NetworkManager // enables networkmanager.service to be startup when the machine start
+        passwd (create password for root)
+        os-prober // make grub detect (other os)
+        grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot/efi  // installing grub bootloader in /boot/efi
+        grub-mkconfig -o /boot/grub/grub.cfg    // creating/updating grub config file
+        mkdir /boot/efi/EFI/BOOT
+        cp /boot/efi/EFI/GRUB/grubx64.efi /boot/efi/EFI/BOOT/BOOTX64.EFI
+        vim /boot/efi/startup.nsh (add $(startup.txt))
+        umount -R /mnt
+        reboot
+
+[setting up user]
+        useradd -m -g users -G wheel -s /bin/bash $(username)
+        passwd $(username)
+        vim visudo (uncomment "%wheel All = (All) All")
+
+[desktop enviroment]
+        sudo pacman -S $([desktop enviroment] packages.txt)
+        systemctl enable sddm
+
+
+

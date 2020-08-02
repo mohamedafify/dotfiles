@@ -1,0 +1,44 @@
+[main]
+        base
+        base-devel
+        linux
+        linux-firmware
+        linux-headers
+        networkmanager (use nmtui)
+        grub
+        efibootmgr
+        os-prober
+        ntfs-3g
+
+[basic]
+        pulseaudio
+        pulseaudio-alsa
+        pulsemixer
+        pavucontrol
+        xorg
+        xorg-init
+        xorg-server
+        code
+        firefox
+        git
+        mpv
+        openssh
+        pkgconf
+        splint
+        uget
+        unrar
+        unzip
+        util-linux
+        valgrind
+        vifm
+        vim
+        vlc
+        youtube-dl
+        xclip
+        whois
+        clang
+
+[desktop enviroment]
+        plasma-meta
+        kde-applications
+        kde-applicatoins-meta
