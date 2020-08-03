@@ -1,0 +1,7 @@
+	"editor.renderControlCharacters": true,
+	"editor.renderIndentGuides": true,
+	"editor.renderWhitespace": "all",
+	"editor.fontFamily": "Inconsolata, Monaco, Consolas, 'Courier New', Courier;",
+	"editor.fontSize": 16,
+	"editor.wordWrap": "on",
+	"editor.tabSize": 8,
