@@ -12,3 +12,5 @@
 	"explorer.confirmDragAndDrop": false,
 	"C_Cpp.updateChannel": "Insiders",
 	"editor.insertSpaces": false,
+	"window.zoomLevel": -1,
+	"editor.tokenColorCustomizations": true,
