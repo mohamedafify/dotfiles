@@ -1,3 +1,4 @@
+{
 	"editor.renderControlCharacters": true,
 	"editor.renderIndentGuides": true,
 	"editor.renderWhitespace": "all",
@@ -14,3 +15,6 @@
 	"editor.insertSpaces": false,
 	"window.zoomLevel": -1,
 	"editor.tokenColorCustomizations": true,
+	"editor.formatOnSave": true,
+	"clang-format.executable": "/home/mohamedafify/hackerrank/.clang-format",
+}
