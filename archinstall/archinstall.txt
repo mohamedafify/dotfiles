@@ -1,7 +1,8 @@
 [internet]
         wifi-menu
-        // if failed use this 
-        iwd
+        // if failed use this
+        systemctl start iwd
+        iwctl
         "wifi-device-name" list
         station  "wifi-device-name" scan
         station "wifi-device-name" get-networks
