@@ -37,6 +37,9 @@
         xclip
         whois
         clang
+        alsa-firmware
+        sof-firmware
+        alsa-ucm-conf
 
 [desktop enviroment]
         plasma-meta
