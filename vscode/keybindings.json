@@ -1,0 +1,16 @@
+[
+	{
+		// toggle remove/add terminal tab
+		"key": "ctrl+alt+t",
+		"command": "workbench.action.togglePanel",
+		"when": "editorTextFocus"
+	},
+	{
+		// toggle between terminal and editor
+		"key": "ctrl+`", "command": "workbench.action.terminal.focus"
+	},
+	{ 
+		// toggle between terminal and editor
+		"key": "ctrl+`", "command": "workbench.action.focusActiveEditorGroup", "when": "terminalFocus"
+	}
+]
