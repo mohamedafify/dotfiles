@@ -1,29 +1,48 @@
-"fonts"
-set guifont=Monaco\ 14
-
-"colorscheme"
-colorscheme desert
-
-"status line format
-set statusline=%F%m%r%h%w\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
-
-"syntax highlighting"
-syntax on
-
-"show status bar"
+let mapleader=" "
+let $VIMHOME=expand("~/.vim")
 set laststatus=2
+set autoindent
+set smartindent
+set nocompatible
+set shell=bash
+set noswapfile
+set backspace=indent,eol,start
 
-"number lines"
-set number
-"set the number of digits for numbering lines"
-set numberwidth=4
+source ~/.vim/comment.vim
 
-"map Capslock to exit INSERT mode from ESCAPE"
-"map <CapsLock> 
+colorscheme cold
+syntax enable
+set tabstop=8
+set shiftwidth=8
+set noexpandtab
+set splitright
+set wildmenu
+set wildmode=list:full,full
+set ignorecase
+set smartcase
 
+vmap <C-c> y:call system("xclip -i -selection clipboard", getreg("\""))<cr>:call system("xclip -i", getreg("\""))<cr>
 
-"modification notes"
-	":highlight		for changing any highlighting"
-	":abbreviate		like #define"
-	":map new old<cr>	<cr> for executing command, map different keybindes
+noremap J o<esc>k
+noremap K O<esc>j
 
+noremap H ^
+noremap L $
+"move between pans"
+nnoremap <Left>  <C-w>h
+nnoremap <Down>  <C-w>j
+nnoremap <Up> 	 <C-w>k
+nnoremap <Right> <C-w>l
+"move pans to"
+nnoremap <Super><Left>  <C-w>H
+nnoremap <Super><Down>  <C-w>J
+nnoremap <Super><Up> 	 <C-w>K
+nnoremap <Super><Right> <C-w>L
+"move between tabs"
+nnoremap <C-[>j		gT
+nnoremap <C-[>k		gt
+
+"------------------------------
+"	    Plugins
+"------------------------------
+"execute pathogen#infect()
