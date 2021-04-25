@@ -3,12 +3,18 @@
         // if failed use this
         systemctl start iwd
         iwctl
-        "wifi-device-name" list
+        device list // get wifi adapter name
         station  "wifi-device-name" scan
         station "wifi-device-name" get-networks
         station "wifi-device-name" connect "wifi-name"
 
 [partiton]
+	[create 3 partitions]
+	[size]	[type]	[name]
+	512M	fat	/mnt/boot/efi	// boot
+	10G	ext4	/mnt		// root
+	{rest}	ext4	/mnt/home	// home
+	
         mkfs.fat -F32 /dev/sda1 // boot partiton
         mkfs.ext4 /dev/sda2     // root partiton
         mkfs.ext4 /dev/sda3     // home partiton
@@ -22,7 +28,7 @@
 
 [installation]
         pacstrap -i /mnt $([main]Packages.txt)
-        fstab -U /mnt >> /mnt/etc/fstab // get hardware information and set it up to be mounted on boot
+        genfstab -U /mnt >> /mnt/etc/fstab // get hardware information and set it up to be mounted on boot
         arch-chroot /mnt // hop into the installed archlinux
         vim /etc/locale.gen (edit out the languages needed)
         locale-gen // generates the edited out languages
