@@ -33,15 +33,18 @@
         vifm
         vim
         vlc
-        youtube-dl
-        xclip
         whois
         clang
         alsa-firmware
         sof-firmware
         alsa-ucm-conf
+		arandr					"for dual monitor easy setup"
 
 [desktop enviroment]
         plasma-meta
         kde-applications
         kde-applicatoins-meta
+	
+[gpu]
+		nvidia
+		nvidia-settings
