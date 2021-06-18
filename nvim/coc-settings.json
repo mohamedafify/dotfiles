@@ -1,0 +1,11 @@
+{
+	"flutter.sdk.path": "~/development-kit/flutter/bin",
+	"coc.preferences.silentAutoupdate": true,
+	"coc.preferences.extensionUpdateCheck": "daily",
+	"coc.preferences.snippets.enable": true,
+	"coc.preferences.snippetStatusText": "",
+	"coc.preferences.formatOnType": true,
+	"coc.preferences.formatOnSaveFiletypes": [
+    "dart",   // coc-flutter support dart format */
+  ],
+}
