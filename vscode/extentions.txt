@@ -1,2 +1,0 @@
-c/c++
-Clang-format(must be in the same directory)
