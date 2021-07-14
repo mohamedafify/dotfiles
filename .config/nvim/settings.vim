@@ -33,7 +33,7 @@ set formatoptions+=j
 set formatoptions+=n
 set foldmethod=indent
 set foldlevelstart=99
-set shell=bash
+set shell=zsh
 set noswapfile
 set termguicolors
 set noexpandtab
@@ -41,6 +41,10 @@ set splitright
 set wildmenu
 set wildmode=list:full,full
 set background=dark
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+set clipboard=unnamedplus
 
 "for some plugins to work
 set hidden
@@ -52,40 +56,41 @@ set shortmess+=c
 set completeopt-=preview "prevent showing preview when autocompleting"
 
 if has("nvim-0.5.0") || has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
+	" Recently vim can merge signcolumn and number column into one
+	set signcolumn=number
 else
-  set signcolumn=yes
+	set signcolumn=yes
 endif
 
+"dart
+let g:dart_format_on_save = 0
 
-"vim-flutter
-let g:flutter_command= "~/development-kit/flutter/bin/flutter"
-let g:lsc_dart_sdk_path="~/development-kit/flutter/bin/cache/dart-sdk"
-let g:flutter_hot_reload_on_save = 1
-let g:flutter_hot_restart_on_save = 0
-let g:flutter_show_log_on_run = 0 "__Flutter_Output__"
+"flutter
+let g:flutter_command = "$HOME/development-kit/flutter/bin/flutter"
 
 "folder management (nerdtree)
 let g:NERDTreeGitStatusIndicatorMapCustom = {
-\ 'Modified'  :'M',
-\ 'Staged'    :'S',
-\ 'Untracked' :'U',
-\ 'Renamed'   :'R',
-\ 'Unmerged'  :'═',
-\ 'Deleted'   :'✖',
-\ 'Dirty'     :'✗',
-\ 'Ignored'   :'☒',
-\ 'Clean'     :'✔︎',
-\ 'Unknown'   :'?',
-\ }
+			\ 'Modified'  :'M',
+			\ 'Staged'    :'S',
+			\ 'Untracked' :'U',
+			\ 'Renamed'   :'R',
+			\ 'Unmerged'  :'═',
+			\ 'Deleted'   :'✖',
+			\ 'Dirty'     :'✗',
+			\ 'Ignored'   :'☒',
+			\ 'Clean'     :'✔︎',
+			\ 'Unknown'   :'?',
+			\ }
 let g:NERDTreeGitStatusUseNerdFonts = 1
 let g:NERDTreeGitStatusShowIgnored = 1
 
 "snippets
 let g:UltiSnipsEditSplit = "tabdo"
+let g:UltiSnipsExpandTrigger = '<Nop>'
+let g:coc_snippet_next = '<TAB>'
+let g:coc_snippet_prev = '<S-TAB>'
 
-"git symobls
+"git symbols inside file
 let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_modified = '|'
@@ -94,3 +99,40 @@ let g:gitgutter_sign_modified = '|'
 let g:airline_theme = 'onedark'
 colorscheme onedark
 
+"markdown
+let g:mkdp_auto_start = 1
+let g:mkdp_auto_close = 0
+
+"debugging
+lua << EOF
+local dap = require('dap')
+
+dap.adapters.dart = {
+	type = "executable";
+	command = "node";
+	args = {"/home/mohamed/.config/nvim/bundle/dart-code/out/dist/debug.js", "flutter"};
+	}
+
+dap.configurations.dart = {
+	{
+			type = "dart",
+			request = "launch",
+			name = "Launch flutter",
+			dartSdkPath = "/home/mohamed/development-kit/flutter/bin/cache/dart-sdk/",
+			flutterSdkPath = "/home/mohamed/development-kit/flutter",
+			program = "${workspaceFolder}/lib/main.dart",
+			cwd = "${workspaceFolder}",
+	}
+	}
+vim.fn.sign_define('DapBreakpoint', {text='🟥', texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapStopped', {text='⭐️', texthl='', linehl='', numhl=''})
+
+require("dapui").setup()
+require("flutter-tools").setup {
+	debugger = {
+		enabled = true,
+	}
+}
+EOF
+
+"auto closing tags

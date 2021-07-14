@@ -1,0 +1,11 @@
+#!/bin/zsh
+zle_highlight=('paste:none')
+
+unsetopt BEEP
+
+# colors
+autoload -Uz colors && colors
+
+source "$ZDOTDIR/zsh-prompt"
+
+bindkey -s "" "sfm"

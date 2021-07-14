@@ -51,13 +51,3 @@
         useradd -m -g users -G wheel -s /bin/bash $(username)
         passwd $(username)
         vim visudo (uncomment "%wheel All = (All) All")
-
-[desktop enviroment]
-        sudo pacman -S $([desktop enviroment] packages.txt)
-        echo "export DESKTOP_SESSION=plasma" > ~/.xinitrc
-        echo "exec startplasma-x11" > ~/.xinitrc
-        systemctl enable sddm
-        startx
-
-
-

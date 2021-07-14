@@ -1,50 +1,60 @@
 [main]
-        base
-        base-devel
-        linux
-        linux-firmware
-        linux-headers
-        networkmanager (use nmtui)
-        grub
-        efibootmgr
-        os-prober
-        ntfs-3g
+	base
+	base-devel
+	linux
+	linux-firmware
+	linux-headers
+	networkmanager (use nmtui)
+	grub
+	efibootmgr
+	os-prober
+	ntfs-3g
 
 [basic]
-        pulseaudio
-        pulseaudio-alsa
-        pulsemixer
-        pavucontrol
-        xorg
-        xorg-init
-        xorg-server
-        code
-        firefox
-        git
-        mpv
-        openssh
-        pkgconf
-        splint
-        uget
-        unrar
-        unzip
-        util-linux
-        valgrind
-        vifm
-        vim
-        vlc
-        whois
-        clang
-        alsa-firmware
-        sof-firmware
-        alsa-ucm-conf
-		arandr					"for dual monitor easy setup"
+	pulseaudio
+	pulseaudio-alsa
+	pulsemixer
+	pavucontrol
+	xorg
+	xorg-xinit
+	xorg-server
+	firefox
+	git
+	mpv
+	openssh
+	makepkg
+	pkgconf
+	splint
+	uget
+	unrar
+	unzip
+	util-linux
+    ind
+	vifm
+	nvim
+	vlc
+	whois
+	clang
+	gcc
+	gcc-libs
+	libreoffice
+	alsa-firmware
+	sof-firmware
+	alsa-ucm-conf
+	arandr					"for dual monitor easy setup"
+	xwallpaper
+	node
+	playerctl
 
-[desktop enviroment]
-        plasma-meta
-        kde-applications
-        kde-applicatoins-meta
+[github packages]
+	dwm
+	dwmblocks
+	dmenu
+	.local/bin/statusbar folder for dwmblocks
+
+[AUR]
+	libxft-bgra
 	
 [gpu]
-		nvidia
-		nvidia-settings
+	nvidia
+	nvidia-settings
