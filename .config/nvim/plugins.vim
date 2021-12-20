@@ -39,9 +39,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/fzf'
 
-"Snippets
-Plugin 'SirVer/ultisnips'
-
 "syntax checking
 Plugin 'vim-syntastic/syntastic'
 

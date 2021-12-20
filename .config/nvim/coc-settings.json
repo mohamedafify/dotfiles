@@ -3,6 +3,6 @@
 	"coc.preferences.silentAutoupdate": true,
 	"coc.preferences.extensionUpdateCheck": "daily",
 	"coc.preferences.snippets.enable": true,
-	"javascript.validate.enable": false
+	"javascript.validate.enable": false,
 }
 

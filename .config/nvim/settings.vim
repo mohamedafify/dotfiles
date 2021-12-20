@@ -5,8 +5,10 @@ syntax enable
 set encoding=utf-8
 set laststatus=2
 set noshowmode
-set tabstop=4
-set shiftwidth=4
+set sw=4
+set sts=4
+set ts=4
+set noet
 set cursorline
 set number
 set noshowcmd
@@ -45,6 +47,7 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 set clipboard=unnamedplus
+set lcs=tab:\|\ 
 
 "for some plugins to work
 set hidden

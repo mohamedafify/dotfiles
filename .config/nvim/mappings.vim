@@ -13,7 +13,9 @@ nnoremap <Right> <C-w>l
 "tabs"
 nnoremap <C-L>	gt
 nnoremap <C-H>	gT
-nnoremap <leader>tc :tabclose<CR>
+nnoremap <leader>tq :tabclose<CR>
+nnoremap <leader>tl :tabm -1<CR>
+nnoremap <leader>tr :tabm +1<CR>
 
 "refresh"
 nnoremap <leader>r :source ~/.config/nvim/init.vim<CR>
@@ -23,7 +25,7 @@ noremap <leader>p :source ~/.config/nvim/init.vim<CR>:PluginInstall<CR>
 nnoremap <leader>fr :FlutterRun<CR>
 nnoremap <leader>fh :FlutterRestart<CR>
 nnoremap <leader>fq :!killall -SIGKILL qemu-system-x86_64<CR>
-nnoremap <silent> <leader>fe :!flutter emulators --launch Pixel_4_XL_API_30<CR>
+nnoremap <silent><leader>fe :!flutter emulators --launch Pixel_4_XL_API_30<CR>
 nnoremap <expr><silent><leader>fd ToggleFlutterDebug()
 
 function! ToggleFlutterDebug()
@@ -49,6 +51,17 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> <leader>rn <Plug>(coc-rename)
+nnoremap <silent> <C-K> :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+	if (index(['vim','help'], &filetype) >= 0)
+		execute 'h '.expand('<cword>')
+	elseif (coc#rpc#ready())
+		call CocActionAsync('doHover')
+	else
+		execute '!' . &keywordprg . " " . expand('<cword>')
+	endif
+endfunction
 "DON'T USE noremap with <Plug>"
 
 

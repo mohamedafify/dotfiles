@@ -14,3 +14,7 @@
 
 [alias]
 	ll    = log --all --graph --pretty=format:"%C(#0080ff)%h\\ %C(#cd9a00)<%an>\\ %C(#c0d6de)%s\\ %C(#17b062)%d"
+[credential]
+	helper = store
+[http]
+	sslVerify = true
