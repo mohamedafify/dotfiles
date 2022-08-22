@@ -3,6 +3,15 @@
 	"coc.preferences.silentAutoupdate": true,
 	"coc.preferences.extensionUpdateCheck": "daily",
 	"coc.preferences.snippets.enable": true,
-	"javascript.validate.enable": false,
+	"javascript.validate.enable": true,
+	//"coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "html", "go", "js", "php"],
+	"prettier.useTabs": true,
+	"prettier.tabWidth": 4,
+	"tsserver.npm": "/usr/bin/npm",
+	"tsserver.enable": true,
+	"tsserver.enableJavascript": true,
+	"tsserver.enableTracing": true,
+	"tsserver.trace.server": "verbose",
+	"tsserver.log": "verbose"
 }
 

@@ -22,6 +22,7 @@ Plugin 'nvim-lua/plenary.nvim'
 
 "autocompele
 Plugin 'neoclide/coc.nvim'
+"Plugin 'neoclide/coc-tsserver'
 
 "Colorscheme
 Plugin 'sainnhe/gruvbox-material'
@@ -34,6 +35,7 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 "Git
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
+Plugin 'rhysd/conflict-marker.vim'
 
 "search files
 Plugin 'junegunn/fzf.vim'

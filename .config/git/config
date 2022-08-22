@@ -1,6 +1,7 @@
 [user]
 	name = mohamedafify
 	email = mohamed@afify.dev
+	signingkey = E3F6B01B7EFD45A2
 
 [core]
 	editor = nvim
@@ -18,3 +19,5 @@
 	helper = store
 [http]
 	sslVerify = true
+[commit]
+	gpgsign = true

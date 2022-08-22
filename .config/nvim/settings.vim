@@ -106,6 +106,13 @@ colorscheme onedark
 let g:mkdp_auto_start = 1
 let g:mkdp_auto_close = 0
 
+"git conflict
+highlight ConflictMarkerBegin guibg=#2f7366
+highlight ConflictMarkerOurs guibg=#2e5049
+highlight ConflictMarkerTheirs guibg=#344f69
+highlight ConflictMarkerEnd guibg=#2f628e
+highlight ConflictMarkerCommonAncestorsHunk guibg=#754a81
+
 "debugging
 lua << EOF
 local dap = require('dap')
@@ -137,5 +144,3 @@ require("flutter-tools").setup {
 	}
 }
 EOF
-
-"auto closing tags

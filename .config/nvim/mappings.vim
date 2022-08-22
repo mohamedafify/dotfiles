@@ -93,3 +93,5 @@ endf
 "fix indentation
 nnoremap <silent> <leader>fi :call FixFileIndentation()<CR>
 
+"prettier
+command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
