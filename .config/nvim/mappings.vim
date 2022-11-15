@@ -43,7 +43,7 @@ nnoremap <C-b> :NERDTreeToggle<CR>
 nnoremap <C-F> :Files<CR>
 
 "Coc
-inoremap <silent><expr> <TAB> pumvisible() ? coc#_select_confirm() : "\<TAB>"
+inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#_select_confirm() : "\<TAB>"
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nmap <silent> gd <Plug>(coc-definition)
@@ -51,7 +51,7 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> <leader>rn <Plug>(coc-rename)
-nnoremap <silent> <C-K> :call <SID>show_documentation()<CR>
+nmap <silent> <leader>k :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
 	if (index(['vim','help'], &filetype) >= 0)
@@ -64,6 +64,10 @@ function! s:show_documentation()
 endfunction
 "DON'T USE noremap with <Plug>"
 
+"NOT WORKING""
+nnoremap <silent><expr> <C-j> coc#float#has_scroll() ? coc#float#scroll(1, 1) : "\<C-j>"
+nnoremap <silent><expr> <C-k> coc#float#has_scroll() ? coc#float#scroll(0, 1) :  "\<C-k>"
+"NOT WORKING""
 
 "git
 nnoremap <leader>gc :Git commit<CR>
@@ -88,10 +92,10 @@ func! FixFileIndentation()
 	let l:winview = winsaveview()
 	:norm gg=Gzz
 	call winrestview(l:winview)
-endf
+	endf
 
-"fix indentation
-nnoremap <silent> <leader>fi :call FixFileIndentation()<CR>
+	"fix indentation
+	nnoremap <silent> <leader>fi :call FixFileIndentation()<CR>
 
-"prettier
-command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
+	"prettier
+	command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument

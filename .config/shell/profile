@@ -5,6 +5,13 @@ export EDITOR="nvim"
 export TERMINAL="st"
 export BROWSER="firefox"
 export ANDROID_HOME="$HOME/Android/Sdk"
+export _JAVA_AWT_WM_NONREPARENTING=1
+export PGUSER="postgres"
+export PGHOST='localhost'
+export PGPASSWORD="postgres"
+export PGDATABASE="rising"
+export PGPORT=5432
+export GPG_TTY=$(tty)
 
 export
 PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
@@ -17,5 +24,9 @@ export PATH="$PATH:$ANDROID_HOME/platform-tools"
 export PATH="$PATH:$ANDROID_HOME/emulator"
 export PATH="$PATH:$ANDROID_HOME/tools"
 export PATH="$PATH:$ANDROID_HOME/tools/bin"
+export PATH="$PATH:$HOME/development-kit/depot_tools"
+export PATH="$PATH:$HOME/.local/bin/"
+export PATH="$PATH:/usr/share/oracle/instantclient_21_5"
+export PATH="$PATH:/home/mohamed/.config/composer/vendor/bin"
 
 [ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx "$XINITRC"

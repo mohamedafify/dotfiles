@@ -53,6 +53,9 @@ Plugin 'andymass/vim-matchup'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'honza/vim-snippets'
 
+"php
+Plugin 'vim-vdebug/vdebug'
+
 call vundle#end()
 filetype plugin indent on
 
